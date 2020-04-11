@@ -1,7 +1,6 @@
+const app = require('express')();
+const http = require ('http').createServer(app)
 const express = require('express');
-const app = express();
-const http = require ('http'). createServer(app)
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
@@ -16,6 +15,8 @@ socketio.on("connection", (userSocket) => {
         userSocket.broadcast.emit("receive_message", data)
     })
 })
+
+
 
 
 module.exports = http;
